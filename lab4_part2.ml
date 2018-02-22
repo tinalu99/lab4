@@ -111,8 +111,8 @@ functions that have the same name and type.
 
 module type Sequence =
   sig
-    type length = Infinite | Finite of int
-    type info = {name: string; length: length; inventor: string}
+    val length : Studyplan.length
+    val info : Studyplan.info
     val exists : int -> bool
     val eval : int -> 'a option
   end;;
