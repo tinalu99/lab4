@@ -71,7 +71,7 @@ type float option. Name the resulting value `result`. (Do not use
 the `open` command for this exercise.)
 ......................................................................*)
 
-let result = Some (Math.max [Math.cos Math.pi; Math.sin Math.pi]) ;;
+let result = Math.max [Math.cos Math.pi; Math.sin Math.pi] ;;
 
 (*......................................................................
 Exercise 1C: Redo the computation from above, but use the `local open`
@@ -80,4 +80,4 @@ syntax to write your computation in a more succinct manner.
 
 let result_local_open =
   let open Math in
-  Some (max [cos pi; sin pi]) ;;
+  max [cos pi; sin pi] ;;
