@@ -117,8 +117,7 @@ enqueued in order: "Computer", "Science", "51".
 
 let q () =
   let open Queue in
-  enqueue "51" (enqueue "Science" (enqueue "Computer" (empty ())))
- ;;
+  enqueue "51" (enqueue "Science" (enqueue "Computer" (empty ()))) ;;
 
 (*......................................................................
 Exercise 4C: Write an expression to generate a queue with the q
@@ -126,4 +125,4 @@ function, above, and pull the front element from it, naming the result
 front_el.
 ......................................................................*)
 
-let front_el = Queue.dequeue(q ()) ;;
+let front_el = Queue.front(q ()) ;;
