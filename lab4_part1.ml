@@ -61,7 +61,7 @@ module Math : MATH =
       match lst with
       | [] -> None
       | [x] -> Some x
-      | fst :: snd :: tl -> if fst > snd then max (fst :: tl) else max (snd :: tl)
+      | f :: s :: tl -> if f > s then max (f :: tl) else max (s :: tl)
   end ;;
 
 (*......................................................................
