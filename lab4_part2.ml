@@ -84,10 +84,10 @@ various values in the Studyplan module do to understand how to use
 them.
 ......................................................................*)
 
-let last_class = Studyplan.eval (
+let last_class =
   match Studyplan.info.length with
-  | Finite x -> x
-  | _ -> 0) ;;
+  | Finite x -> Studyplan.eval x
+  | Infinite -> failwith "There is no last course!" ;;
 
 (*......................................................................
 We hope you'll find the module system easy to use and convenient, once
@@ -111,8 +111,10 @@ functions that have the same name and type.
 
 module type Sequence =
   sig
-    val length : Studyplan.length
-    val info : Studyplan.info
+    type length
+    type info
+    val info: info
+    val length: length
     val exists : int -> bool
     val eval : int -> 'a option
   end;;
@@ -129,6 +131,6 @@ code. You'll just want to replace the trivial module definition
 "struct end" in the code below.
 ......................................................................*)
 
-module SequenceFibonacci = struct end ;;
-module SequenceInverse = struct end ;;
-module SequenceStudyplan = struct end ;;
+module SequenceFibonacci = (Fibonacci: Sequence) ;;
+module SequenceInverse = (Inverse: Sequence) ;;
+module SequenceStudyplan = (Studyplan: Sequence) ;;
