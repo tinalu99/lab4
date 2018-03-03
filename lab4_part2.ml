@@ -114,9 +114,9 @@ module type Sequence =
     type length
     type info
     val info: info
+    val name: string
     val length: length
     val exists : int -> bool
-    val eval : int -> 'a option
   end;;
 
 

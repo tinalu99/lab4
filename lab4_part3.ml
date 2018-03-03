@@ -186,6 +186,6 @@ perform list operations directly on it, which means the stack
 preserves its abstraction barrier.
 ......................................................................*)
 
-let safe_stack () =
-  let open IntListStack in
+let safe_stack () : SafeIntListStack.stack =
+  let open SafeIntListStack in
   push 1 (push 5 (empty ())) ;;
